@@ -60,8 +60,6 @@ public class QuickSort {
 
     private static void printArr(int[]A){
         for(int n:A){
-            System.out.print(n + " ");
         }
-        System.out.println();
     }
 }
