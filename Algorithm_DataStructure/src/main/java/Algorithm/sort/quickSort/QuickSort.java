@@ -11,8 +11,9 @@ public class QuickSort {
      *
      */
     public static void main(String[] args){
-        int[] A = {10,23,4,523,1,8,99,12,32,44,1,16,8,88,7,42};
+        int[] A = {10,1,2,3,4,6,7,8,9,1,44,51,2,3,423,1,23};
         quickSort(A,0,A.length-1);
+        printArr(A);
     }
 
     private static void quickSort(int[] A, int S, int E){
@@ -23,32 +24,39 @@ public class QuickSort {
         //피벗보다 큰 무리에 대하여 재귀적으로 퀵정렬을 수행한다.
         //A는 정렬대상 배열, S(start)와 E(end)는 배열 내 정렬 범위를 뜻한다.
 
-        int pivot = A[0];
-        System.out.println("피벗" + A[0]);
-        int largeSearch = S+1;
-        int smallSearch = E;
+        int pivot = A[S]; //시작인덱스를 pivot으로 정한다.
+        int i = S+1; //앞에서 뒤로가는 포인터
+        int j = E; //뒤에서 앞으로 오는 포인터
 
-        while(largeSearch<smallSearch){
-            while(A[largeSearch] <= pivot & largeSearch < A.length){
-                largeSearch++;
+        //pivot보다 작은 값은 왼쪽, pivot보다 큰 값은 오른쪽으로 배치한다.
+        //i포인터는 뒤로 이동하면서 pivot보다 큰 값을 찾는다.
+        //j포인터는 앞으로 이동하면서 pivot보다 작은 값을 찾는다.
+
+        while(i < j){
+            while(A[i] < pivot & i < E){
+                i++;
             }
-            while(A[smallSearch] > pivot & smallSearch >= 1){
-                smallSearch--;
+            while(A[j] > pivot & j >= S+1){
+                j--;
             }
-            if(largeSearch < smallSearch){
-                swapElement(A,smallSearch,largeSearch);
+            if(i <= j){
+                swapElement(A,i,j);
+                i++;
+                j--;
             }
-            printArr(A);
         }
-        int pivotLocateIndex = A[smallSearch] < A[largeSearch] ? smallSearch : largeSearch;
-        swapElement(A,0,pivotLocateIndex);
+        //pivot의 위치
+        if(A[--i] < pivot){
+            swapElement(A,S,i);
+        }
         printArr(A);
 
-        if(pivotLocateIndex - S > 1){
-            quickSort(A,0,pivotLocateIndex-1);
+        //재귀적 처리
+        if(i > 1){
+            quickSort(A,0,i);
         }
-        if(E - pivotLocateIndex > 1){
-            quickSort(A,pivotLocateIndex,A.length-1);
+        if((E-i) > 1){
+            quickSort(A,i+1,E);
         }
     }
 
