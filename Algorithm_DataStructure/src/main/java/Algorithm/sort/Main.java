@@ -3,7 +3,7 @@ package main.java.Algorithm.sort;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args){
+    public static <T> void main(String[] args){
         String sort;
         String gen;
         Scanner sc = new Scanner(System.in);
@@ -14,7 +14,13 @@ public class Main {
 
         try{
             Sorter sorter = SorterFactory.getSorter(sort,gen);
-            sorter.doSort(sorter.getArr());
+            T[] t = sorter.getArr();
+            System.out.println("정렬 전 : ");
+            System.out.println(Arrays.toString(t));
+            sorter.doSort(t);
+
+            System.out.println("정렬 결과 : ");
+            System.out.println(Arrays.toString(t));
 
         }catch(Exception e){
             System.out.println("입력값을 확인 후 다시 이용해주세요.");
