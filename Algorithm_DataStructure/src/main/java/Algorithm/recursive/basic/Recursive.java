@@ -1,5 +1,6 @@
 package main.java.Algorithm.recursive.basic;
 
+
 public class Recursive {
 
     public static void main(String[] args){
