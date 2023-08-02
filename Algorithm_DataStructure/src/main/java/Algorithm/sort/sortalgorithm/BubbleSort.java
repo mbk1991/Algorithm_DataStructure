@@ -10,9 +10,14 @@ public class BubbleSort extends Sort{
 
     @Override
     public <T> void sort(T[] T) {
+        boolean flag = true;
         for(int i=0; i<T.length; i++){
             for(int j=0; j<T.length-i-1; j++){
                 swap(T,j,j+1);
+                flag = false;
+            }
+            if(flag){
+                break;
             }
         }
     }

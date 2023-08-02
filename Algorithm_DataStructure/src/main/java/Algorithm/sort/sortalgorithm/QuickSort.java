@@ -1,5 +1,8 @@
 package main.java.Algorithm.sort.sortalgorithm;
 
+import static main.java.Algorithm.sort.sortalgorithm.SortTool.compareT;
+import static main.java.Algorithm.sort.sortalgorithm.SortTool.swap;
+
 public class QuickSort extends Sort {
 
     public QuickSort(String name){
@@ -8,8 +11,47 @@ public class QuickSort extends Sort {
 
     @Override
     public <T> void sort(T[] T) {
-
+        int start = 0;
+        int end = T.length-1;
+        qckSort(T, start, end);
     }
+    private <T> void qckSort(T[] T, int S, int E){
+        T pivot = T[0];
+        int largeChkPointer = S + 1;
+        int smllChkPointer = E;
+
+        while((largeChkPointer < smllChkPointer)){
+            while(compareT(T[largeChkPointer], pivot) < 0 & largeChkPointer < smllChkPointer){
+                largeChkPointer++;
+            }
+            while(compareT(T[smllChkPointer], pivot) > 0 & smllChkPointer < smllChkPointer){
+                smllChkPointer--;
+            }
+            swap(T, largeChkPointer, smllChkPointer);
+            largeChkPointer++;
+            smllChkPointer--;
+        }
+
+        int pivotLocation = 0;
+        if(largeChkPointer >= smllChkPointer){
+            if(compareT(T[largeChkPointer], pivot) < 0){
+                swap(T, 0, largeChkPointer);
+                pivotLocation = largeChkPointer;
+            }else{
+                swap(T, 0, largeChkPointer - 1);
+                pivotLocation = largeChkPointer - 1;
+            }
+        }
+
+        if((pivotLocation - S) > 1){
+            qckSort(T,0,pivotLocation - 1);
+        }
+        if((E - pivotLocation) > 1){
+            qckSort(T,pivotLocation + 1, E);
+        }
+    }
+
+
 
 //    /**
 //     * 퀵정렬(QuickSort)
