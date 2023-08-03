@@ -28,15 +28,20 @@ public class QuickSort extends Sort {
             while(compareT(T[i], pivot) < 0 & i < j){
                 i++;
             }
-            while(compareT(T[j], pivot) > 0 & i< j){
+            while(compareT(T[j], pivot) > 0 & i < j){
                 j--;
             }
             swap(T, i, j);
-            i++; j--;
         }
+
         swap(T,0, i);
 
-
+        if(i > 1){
+            qckSort(T, 0, i-1);
+        }
+        if((E-i) > 1){
+            qckSort(T, i+1, E);
+        }
     }
 
 

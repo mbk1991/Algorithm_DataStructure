@@ -3,30 +3,13 @@ package Algorithm.sort.sortalgorithm;
 public class SortTool {
 
     public static <T> void swap(T[] T, int leftIndex, int rightIndex){
-        if(T[leftIndex] instanceof Integer & T[rightIndex] instanceof Integer){
-            Integer tmp;
-            Integer left = (Integer) T[leftIndex];
-            Integer right = (Integer) T[rightIndex];
+            T tmp;
+            T left = T[leftIndex];
+            T right = T[rightIndex];
 
-            if((Integer) T[rightIndex] < (Integer) T[leftIndex]){
-                tmp = left;
-                T[leftIndex] = (T)right;
-                T[rightIndex] = (T)tmp;
-                tmp = 0;
-            }
-        }else{
-            String tmp;
-            String left = (String) T[leftIndex];
-            String right = (String) T[rightIndex];
-
-            if(left.compareToIgnoreCase(right) > 0){
-                tmp = left;
-                T[leftIndex] = (T)right;
-                T[rightIndex] = (T)tmp;
-                tmp = "";
-            }
-
-        }
+            tmp = left;
+            T[leftIndex] = right;
+            T[rightIndex] = tmp;
     }
 
     public static <T> void insert(T[] T, int targetIndex, int locationIndex){

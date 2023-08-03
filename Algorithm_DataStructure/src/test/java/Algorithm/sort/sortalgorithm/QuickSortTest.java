@@ -27,7 +27,7 @@ public class QuickSortTest {
     }
 
     @Test
-    void sort() {
+    void 퀵정렬확인() {
         Integer[] arr = {10,100,1,200,2,300,3,400,4,500,5};
         Integer[] rsltArr = {1,2,3,4,5,100,200,300,400,500};
         qckSort.sort(arr);

@@ -1,5 +1,6 @@
 package Algorithm.sort.sortalgorithm;
 
+import static Algorithm.sort.sortalgorithm.SortTool.compareT;
 import static Algorithm.sort.sortalgorithm.SortTool.swap;
 
 public class BubbleSort extends Sort{
@@ -13,7 +14,9 @@ public class BubbleSort extends Sort{
         boolean flag = true;
         for(int i=0; i<T.length; i++){
             for(int j=0; j<T.length-i-1; j++){
-                swap(T,j,j+1);
+                if(compareT( T[j], T[j+1]) > 0){
+                    swap(T,j,j+1);
+                }
                 flag = false;
             }
             if(flag){
