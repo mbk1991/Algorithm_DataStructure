@@ -1,7 +1,7 @@
-package main.java.Algorithm.sort;
+package Algorithm.sort;
 
-import main.java.Algorithm.sort.arrgen.ArrGenerator;
-import main.java.Algorithm.sort.sortalgorithm.Sort;
+import Algorithm.sort.arrgen.ArrGenerator;
+import Algorithm.sort.sortalgorithm.Sort;
 
 public class Sorter {
     private Sort sort;

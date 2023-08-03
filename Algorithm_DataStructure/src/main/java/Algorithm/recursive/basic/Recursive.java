@@ -1,4 +1,4 @@
-package main.java.Algorithm.recursive.basic;
+package Algorithm.recursive.basic;
 
 
 public class Recursive {

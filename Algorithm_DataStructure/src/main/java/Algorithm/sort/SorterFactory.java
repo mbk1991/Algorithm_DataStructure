@@ -1,9 +1,9 @@
-package main.java.Algorithm.sort;
+package Algorithm.sort;
 
-import main.java.Algorithm.sort.arrgen.ArrGenerator;
-import main.java.Algorithm.sort.arrgen.InputGen;
-import main.java.Algorithm.sort.arrgen.RandomGen;
-import main.java.Algorithm.sort.sortalgorithm.*;
+import Algorithm.sort.arrgen.InputGen;
+import Algorithm.sort.arrgen.ArrGenerator;
+import Algorithm.sort.arrgen.RandomGen;
+import Algorithm.sort.sortalgorithm.*;
 
 public class SorterFactory {
     private final static String[]  CHK_SORT = {"버블,bubble","삽입,인서트,insert","선택,셀렉트,셀렉션,select","퀵,quick","병합,머지,merge"};

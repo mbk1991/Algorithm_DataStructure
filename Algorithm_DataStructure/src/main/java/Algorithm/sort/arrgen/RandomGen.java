@@ -1,4 +1,4 @@
-package main.java.Algorithm.sort.arrgen;
+package Algorithm.sort.arrgen;
 
 import java.util.Random;
 

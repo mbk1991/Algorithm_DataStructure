@@ -1,4 +1,4 @@
-package main.java.Algorithm.recursive.folderandfile;
+package Algorithm.recursive.folderandfile;
 
 import java.util.ArrayList;
 

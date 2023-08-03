@@ -1,4 +1,4 @@
-package main.java.Algorithm.sort;
+package Algorithm.sort;
 
 import java.util.*;
 

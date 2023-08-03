@@ -1,4 +1,4 @@
-package main.java.Algorithm.sort.arrgen;
+package Algorithm.sort.arrgen;
 
 public abstract class ArrGenerator {
     private String name;

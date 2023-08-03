@@ -1,6 +1,6 @@
-package main.java.Algorithm.sort.sortalgorithm;
+package Algorithm.sort.sortalgorithm;
 
-import static main.java.Algorithm.sort.sortalgorithm.SortTool.swap;
+import static Algorithm.sort.sortalgorithm.SortTool.swap;
 
 public class BubbleSort extends Sort{
 

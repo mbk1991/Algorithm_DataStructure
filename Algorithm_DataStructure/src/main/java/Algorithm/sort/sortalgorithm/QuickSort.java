@@ -1,7 +1,9 @@
-package main.java.Algorithm.sort.sortalgorithm;
+package Algorithm.sort.sortalgorithm;
 
-import static main.java.Algorithm.sort.sortalgorithm.SortTool.compareT;
-import static main.java.Algorithm.sort.sortalgorithm.SortTool.swap;
+import Algorithm.sort.sortalgorithm.Sort;
+
+import static Algorithm.sort.sortalgorithm.SortTool.compareT;
+import static Algorithm.sort.sortalgorithm.SortTool.swap;
 
 public class QuickSort extends Sort {
 
@@ -11,44 +13,30 @@ public class QuickSort extends Sort {
 
     @Override
     public <T> void sort(T[] T) {
-        int start = 0;
-        int end = T.length-1;
+        int start = 0;          //시작 인덱스
+        int end = T.length-1;   //끝 인덱스
         qckSort(T, start, end);
     }
     private <T> void qckSort(T[] T, int S, int E){
-        T pivot = T[0];
-        int largeChkPointer = S + 1;
-        int smllChkPointer = E;
+        //1.변수 세팅
+        T pivot = T[S];
+        int i = S + 1; //시작부터 증가하는 포인터
+        int j = E;     //끝부터 감소하는 포인터
 
-        while((largeChkPointer < smllChkPointer)){
-            while(compareT(T[largeChkPointer], pivot) < 0 & largeChkPointer < smllChkPointer){
-                largeChkPointer++;
+        //2.pivot 을 기준으로 좌우 swap
+        while(i < j){
+            while(compareT(T[i], pivot) < 0 & i < j){
+                i++;
             }
-            while(compareT(T[smllChkPointer], pivot) > 0 & smllChkPointer < smllChkPointer){
-                smllChkPointer--;
+            while(compareT(T[j], pivot) > 0 & i< j){
+                j--;
             }
-            swap(T, largeChkPointer, smllChkPointer);
-            largeChkPointer++;
-            smllChkPointer--;
+            swap(T, i, j);
+            i++; j--;
         }
+        swap(T,0, i);
 
-        int pivotLocation = 0;
-        if(largeChkPointer >= smllChkPointer){
-            if(compareT(T[largeChkPointer], pivot) < 0){
-                swap(T, 0, largeChkPointer);
-                pivotLocation = largeChkPointer;
-            }else{
-                swap(T, 0, largeChkPointer - 1);
-                pivotLocation = largeChkPointer - 1;
-            }
-        }
 
-        if((pivotLocation - S) > 1){
-            qckSort(T,0,pivotLocation - 1);
-        }
-        if((E - pivotLocation) > 1){
-            qckSort(T,pivotLocation + 1, E);
-        }
     }
 
 

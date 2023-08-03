@@ -1,4 +1,4 @@
-package main.java.Algorithm.recursive.pibonacci;
+package Algorithm.recursive.pibonacci;
 
 import java.util.*;
 

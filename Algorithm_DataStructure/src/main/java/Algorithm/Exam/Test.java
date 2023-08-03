@@ -1,4 +1,4 @@
-package main.java.Algorithm.Exam;
+package Algorithm.Exam;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package main.java.Algorithm.sort.sortalgorithm;
+package Algorithm.sort.sortalgorithm;
 
 public abstract class Sort {
     private String name;

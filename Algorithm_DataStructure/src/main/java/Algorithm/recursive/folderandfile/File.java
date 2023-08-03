@@ -1,4 +1,4 @@
-package main.java.Algorithm.recursive.folderandfile;
+package Algorithm.recursive.folderandfile;
 
 public class File implements FNF{
     private int size;
