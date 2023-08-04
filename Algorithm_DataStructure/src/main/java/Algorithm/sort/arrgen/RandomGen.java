@@ -18,8 +18,8 @@ public class RandomGen extends  ArrGenerator{
         int lengthTo = 100;
         int intBound = 1000;
         int length = randomLength? (rd.nextInt(lengthFrom + 1)+ lengthTo) : lengthTo;
-//        int rand = rd.nextInt(2);
-        int rand = 1;
+        int rand = rd.nextInt(2);
+//        int rand = 1;
         T[] T;
 
         if(rand == 0){

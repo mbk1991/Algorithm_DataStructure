@@ -14,16 +14,16 @@ public class Main {
 
         try{
             Sorter sorter = SorterFactory.getSorter(sort,gen);
-            T[] t = sorter.getArr();
+            T[] T = sorter.getArr();
 
-            System.out.println("정렬 전 : ");
-            if(t.length <= 100){
-                System.out.println(Arrays.toString(t));
+            System.out.println("정렬 전--- ");
+            if(T.length <= 100){
+                System.out.println(Arrays.toString(T));
             }
-            sorter.measureSort(t);
-            System.out.println("정렬 결과 : ");
-            if(t.length <= 100){
-                System.out.println(Arrays.toString(t));
+            sorter.measureSort(T);
+            System.out.println("정렬 후--- ");
+            if(T.length <= 100){
+                System.out.println(Arrays.toString(T));
             }
 
         }catch(Exception e){
