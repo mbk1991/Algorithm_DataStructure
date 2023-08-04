@@ -1,7 +1,5 @@
 package Algorithm.sort.sortalgorithm;
 
-import java.util.*;
-
 public class MergeSort extends Sort {
 
     public MergeSort(String name){
@@ -12,6 +10,7 @@ public class MergeSort extends Sort {
     public <T> void sort(T[] T) {
 
     }
+
 
 
 //    public static void main(String[] args){

@@ -1,48 +1,57 @@
 package Algorithm.sort.sortalgorithm;
 
-import Algorithm.sort.sortalgorithm.Sort;
-
 import static Algorithm.sort.sortalgorithm.SortTool.compareT;
 import static Algorithm.sort.sortalgorithm.SortTool.swap;
 
 public class QuickSort extends Sort {
 
-    public QuickSort(String name){
+    public QuickSort(String name) {
         super(name);
     }
 
     @Override
     public <T> void sort(T[] T) {
-        int start = 0;          //시작 인덱스
-        int end = T.length-1;   //끝 인덱스
+        int start = 0;
+        int end = T.length - 1;
         qckSort(T, start, end);
     }
-    private <T> void qckSort(T[] T, int S, int E){
-        //1.변수 세팅
-        T pivot = T[S];
-        int i = S + 1; //시작부터 증가하는 포인터
-        int j = E;     //끝부터 감소하는 포인터
 
-        //2.pivot 을 기준으로 좌우 swap
-        while(i < j){
-            while(compareT(T[i], pivot) < 0 & i < j){
+    public <T> void qckSort(T[] T, int s, int e) {
+        int pivotIndex = partition(T, s, e);
+        if (pivotIndex - s > 1) {
+            qckSort(T, s, pivotIndex - 1);
+        }
+        if (e - pivotIndex > 1) {
+            qckSort(T, pivotIndex + 1, e);
+        }
+    }
+
+    public <T> int partition(T[] T, int s, int e) {
+        int pivotIndex = s;
+        int i = s + 1;
+        int j = e;
+
+        while (i < j) {
+            while (compareT(T[i], T[pivotIndex]) < 0 && i < j) {
                 i++;
             }
-            while(compareT(T[j], pivot) > 0 & i < j){
+            while (compareT(T[j], T[pivotIndex]) > 0 && i < j) {
                 j--;
             }
             swap(T, i, j);
         }
 
-        swap(T,0, i);
+        if (compareT(T[j], T[pivotIndex]) < 0) {
+            swap(T, pivotIndex, j);
+        } else {
+            swap(T, pivotIndex, --j);
+        }
+        pivotIndex = j;
+//        System.out.println(Arrays.toString(T));
 
-        if(i > 1){
-            qckSort(T, 0, i-1);
-        }
-        if((E-i) > 1){
-            qckSort(T, i+1, E);
-        }
+        return pivotIndex;
     }
+}
 
 
 
@@ -119,4 +128,4 @@ public class QuickSort extends Sort {
 //    }
 
 
-}
+

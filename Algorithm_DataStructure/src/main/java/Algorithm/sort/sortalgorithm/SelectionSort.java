@@ -21,4 +21,5 @@ public class SelectionSort extends Sort {
             swap(T,i,minIndex);
         }
     }
+
 }

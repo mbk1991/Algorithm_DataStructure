@@ -15,12 +15,16 @@ public class Main {
         try{
             Sorter sorter = SorterFactory.getSorter(sort,gen);
             T[] t = sorter.getArr();
-            System.out.println("정렬 전 : ");
-            System.out.println(Arrays.toString(t));
-            sorter.doSort(t);
 
+            System.out.println("정렬 전 : ");
+            if(t.length <= 100){
+                System.out.println(Arrays.toString(t));
+            }
+            sorter.measureSort(t);
             System.out.println("정렬 결과 : ");
-            System.out.println(Arrays.toString(t));
+            if(t.length <= 100){
+                System.out.println(Arrays.toString(t));
+            }
 
         }catch(Exception e){
             System.out.println("입력값을 확인 후 다시 이용해주세요.");

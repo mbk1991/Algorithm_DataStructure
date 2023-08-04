@@ -20,5 +20,12 @@ public class Sorter {
         System.out.println(aGen.getName() + " : 정렬할 배열을 생성합니다.");
         return aGen.genArr();
     }
-
+    public <T> void measureSort(T[] T){
+        long start;
+        long end;
+        System.out.println("정렬전 시각 : " + (start = System.currentTimeMillis()));
+        sort.sort(T);
+        System.out.println("정렬후 시각 : " + (end = System.currentTimeMillis()));
+        System.out.println("정렬소요시간 : " + (end -start));
+    }
 }

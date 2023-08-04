@@ -25,6 +25,7 @@ public class BubbleSort extends Sort{
         }
     }
 
+
 //    private<T> void swap(T[] T,int leftIndex, int rightIndex){
 //
 //        if(T[leftIndex] instanceof Integer & T[rightIndex] instanceof Integer){
