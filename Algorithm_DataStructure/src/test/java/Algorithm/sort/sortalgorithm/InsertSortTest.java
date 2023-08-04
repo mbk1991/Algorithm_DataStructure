@@ -18,6 +18,7 @@ class InsertSortTest {
         //        Integer[] rsltArr = {1,2,3,4,5,6,7,8,9,10};
         T[] arr = ag.genArr();
         T[] copy = Arrays.copyOf(arr, arr.length);
+
         Arrays.sort(copy);
         is.sort(arr);
         Assertions.assertArrayEquals(arr,copy);

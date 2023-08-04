@@ -12,52 +12,35 @@ public class MergeSort extends Sort {
 
     @Override
     public <T> void sort(T[] T) {
-        T[] copy = Arrays.copyOf(T, T.length);
+        T[] src = Arrays.copyOf(T, T.length);
         int start = 0;
         int end = T.length-1;
 
-        mergeSort(T, copy, start, end);
+        mergeSort(T, src, start, end);
     }
 
-    public <T> void mergeSort(T[] T, T[] copy, int s, int e){
-        if((e - s) < 1){
+    public <T> void mergeSort(T[] dest, T[] src, int s, int e){
+
+        int length = e - s;
+
+        if(length < 1){
             return;
         }
-        int m = s + (e - s) / 2;
-        mergeSort(T, copy, s, m);
-        mergeSort(T, copy, m+1, e);
+        int m = (s + e) >>> 1;
+        mergeSort(dest, src, s, m);
+        mergeSort(dest, src, m+1, e);
 
         for(int j=s; j<=e; j++){
-            copy[j] = T[j];
+            src[j] = dest[j];
         }
 
-        int i = s;
-        int p1 = s;
-        int p2 = m+1;
-
-        while(p1 <= m && p2 <= e){
-            if(compareT(T[p1], T[p2]) < 0){
-                T[i] = copy[p1];
-                p1++;
-                i++;
+        for(int k=s, p1=s, p2=m+1; k<=e; k++){
+            if(p2 > e || p1 <= m && compareT(src[p1], src[p2]) < 0){
+                dest[k] = src[p1++];
             }else{
-                T[i] = copy[p2];
-                p2++;
-                i++;
+                dest[k] = src[p2++];
             }
         }
-
-        while(p1 <= m){
-            T[i] = copy[p1];
-            p1++;
-            i++;
-        }
-        while(p2 <= e){
-            T[i] = copy[p2];
-            p2++;
-            i++;
-        }
-
-        System.out.println(Arrays.toString(T));
+//        System.out.println(Arrays.toString(T));
     }
 }
